@@ -1,33 +1,38 @@
-// tests-e2e/auth.spec.ts
 import { test, expect } from '@playwright/test'
 
-test('Should load the app', async ({ page }) => {
+test('Should load the app with Web3 provider', async ({ page }) => {
   // Visit root page
   await page.goto('/')
 
-  // rediect to login page
-  await expect(page.getByTestId('app')).toBeVisible()
-  await expect(page.getByText('Vite + React')).toBeVisible()
+  // Wait for the Connect Wallet button to be visible
+  const connectButton = page.getByRole('button', { name: /connect wallet/i })
+  await expect(connectButton).toBeVisible()
 
+  // Check if the main heading is visible with the correct text
+  await expect(
+    page.getByRole('heading', {
+      name: /production-ready and test-driven development kit using Vite \+ React \+ TypeScript/i,
+    })
+  ).toBeVisible()
 })
-test('Counter button should work ', async ({page} ) => {
-    await page.goto('/')
 
-    // get button by id 
-    const button = page.getByTestId('counter-button')
-    await expect(button).toBeVisible()
+test('Should show wallet connection options when connect button is clicked', async ({
+  page,
+}) => {
+  await page.goto('/')
 
-    // click on button
-    await button.click()
-    
-    // expect count to be 1
-    await expect(button).toHaveText('count is 1')
+  // Click the Connect Wallet button
+  const connectButton = page.getByRole('button', { name: /connect wallet/i })
+  await connectButton.click()
 
+  // Check if the wallet connection modal is visible
+  // RainbowKit uses a dialog for the wallet connection
+  const modal = page.locator('div[role="dialog"]')
+  await expect(modal).toBeVisible()
 
-    // click on button again
-    await button.click()
-    
-    // expect count to be 2
-    await expect(button).toHaveText('count is 2')
-    
-} )
+  // Check if common wallet options are present in the modal
+  // These are the default wallets shown by RainbowKit
+  await expect(
+    modal.getByText(/metamask|rainbow|walletconnect|coinbase/i).first()
+  ).toBeVisible()
+})

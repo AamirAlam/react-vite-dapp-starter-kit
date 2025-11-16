@@ -31,6 +31,7 @@ export default tseslint.config(
           './tsconfig.json',
           './tsconfig.app.json',
           './tsconfig.e2e.json',
+          './tsconfig.node.json',
         ],
         tsconfigRootDir: import.meta.dirname,
       },

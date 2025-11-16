@@ -1,20 +1,25 @@
-# 🚀 React TypeScript Development Starter Kit
+# 🚀 React + Vite + Web3 DApp Starter Kit
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.1.1-61DAFB?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?logo=vite)](https://vitejs.dev/)
+[![Wagmi](https://img.shields.io/badge/Wagmi-2.0.0-FF6B6B?logo=ethereum)](https://wagmi.sh/)
+[![RainbowKit](https://img.shields.io/badge/RainbowKit-2.0.0-FF6B6B?logo=ethereum)](https://www.rainbowkit.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.56.1-2EAD33?logo=playwright)](https://playwright.dev/)
 [![Vitest](https://img.shields.io/badge/Vitest-4.0.8-6E9F18?logo=vvitest)](https://vitest.dev/)
 
-> **A production-ready, enterprise-grade React TypeScript starter template optimized for React development with comprehensive testing, linting, and CI/CD workflows.**
+> **A production-ready, enterprise-grade Web3 DApp starter kit with TypeScript, Vite, Wagmi, and RainbowKit. Perfect for building secure, scalable, and testable decentralized applications.**
 
 ## ✨ Features
 
-### 🏗️ **Modern Development Stack**
+### 🏗️ **Modern Web3 Stack**
 
 - **React 19** - Latest React with concurrent features and improved performance
 - **TypeScript 5.9** - Full type safety with advanced TypeScript features
 - **Vite 7** - Lightning-fast build tool with HMR and optimized bundling
+- **Wagmi v2** - React Hooks for Ethereum with type safety
+- **RainbowKit** - Beautiful, developer-friendly wallet connection
+- **Ethers.js** - Complete Ethereum wallet implementation
 - **ESM Support** - Modern ES modules throughout the entire stack
 
 ### 🧪 **Comprehensive Testing Suite**
@@ -43,20 +48,59 @@
 
 - **Node.js** 18+
 - **pnpm** (recommended) or npm/yarn
+- **Wallet** - MetaMask or any Web3 wallet
 
 ### Installation
 
+1. Clone the repository and install dependencies:
+
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd dapp-setup
+git clone https://github.com/yourusername/react-vite-dapp-starter-kit.git
+cd react-vite-dapp-starter-kit
 
 # Install dependencies
 pnpm install
+```
 
-# Start development server
+2. Set up environment variables:
+
+Copy the example environment file and update it with your WalletConnect Project ID:
+
+```bash
+cp .env.example .env
+```
+
+Then edit the `.env` file and add your WalletConnect Project ID:
+
+```env
+VITE_NODE_ENV=development
+VITE_PROJECT_ID=your-walletconnect-project-id
+```
+
+Get a Project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/).
+
+3. Start the development server:
+
+```bash
 pnpm dev
 ```
+
+## 🛠️ Web3 Features
+
+- 🔌 **Wallet Connection** - Connect with MetaMask, WalletConnect, Coinbase, and more
+- 🔒 **Type-Safe** - Full TypeScript support for all Web3 operations
+- 🌈 **Beautiful UI** - Pre-styled components with RainbowKit
+- ⚡ **Fast Development** - Hot module replacement with Vite
+- 🔄 **Auto-Refresh** - Automatically refresh on chain changes
+- 🛡️ **Security** - Built-in protection against common Web3 vulnerabilities
+
+## 📦 Included Packages
+
+- `@rainbow-me/rainbowkit` - Beautiful wallet connection UI
+- `wagmi` - React Hooks for Ethereum
+- `viem` - TypeScript interface for Ethereum
+- `@tanstack/react-query` - Data synchronization for Web3 state
 
 ### Available Scripts
 
@@ -242,7 +286,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Built with ❤️ for the React community**
+**Built with ❤️ for the community**
 
 [Report Bug](https://github.com/aamir-sh/react-vite-production-kit/issues) · [Request Feature](https://github.com/aamir-sh/react-vite-production-kit/issues) · [Documentation](https://github.com/aamir-sh/react-vite-production-kit/README.md)
 
